@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "type": "string",
+            "required": true
+        },
+        "_rev": {
+            "type": "string"
+        },
+        "_revisions":{
+            "type": "object"
+        },
+        "schema": {
+            "type": "string",
+            "required": true
+        },
+        "question": {
+            "type": "string",
+            "required": true
+        },
+        "choices": {
+            "type": "object",
+            "required": true,
+            "additionalProperties": false,
+            "properties": {
+                "a": {
+                    "type": "string",
+                    "required": true
+                },
+                "b": {
+                    "type": "string",
+                    "required": true
+                },
+                "c": {
+                    "type": "string"
+                },
+                "d": {
+                    "type": "string"
+                }
+            }
+        },
+        "answers": {
+            "type": "array",
+            "required": true,
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+                "type": "string"
+            }
+        },
+        "category": {
+            "type": "string",
+            "required": true
+        },
+        "time": {
+            "type": "string",
+            "required": true
+        },
+        "created": {
+            "type": "string",
+            "required": true
+        },
+        "modified": {
+            "type": "string"
+        },
+        "author": {
+            "type": "string",
+            "required": true
+        },
+        "difficulty": {
+            "type": "integer",
+            "required": true,
+            "minimum": 0,
+            "maximum": 10
+        }
+    }
+}
