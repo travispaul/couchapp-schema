@@ -1,4 +1,4 @@
-function map(doc) {
+function (doc) {
     if (doc.schema) {
         emit(doc.schema, null);
     }
