@@ -28,9 +28,18 @@ function(newDoc, oldDoc, userCtx) {
         property;
 
     if (report.errors.length) {
+
         // Can only throw one error at a time (without stringifying)
         // See issue: COUCHDB-1635
+        // https://issues.apache.org/jira/browse/COUCHDB-1635
         property = report.errors[0].uri.split('/')[1];
-        throw({forbidden: report.errors[0].message + " : " + property});
+        
+        if (property) {
+            error = report.errors[0].message + " : " + property;
+        } else {
+            error = report.errors[0].message;
+        }
+
+        throw({forbidden: error});
     }
 }
